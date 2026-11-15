@@ -15,4 +15,26 @@
     <a href="{% url 'post_delete' post.pk %}" class="btn-delete">🗑️ Excluir</a>
     <a href="{% url 'post_list' %}" class="btn-cancel">← Voltar</a>
 </div>
+
+<hr style="border: 1px solid #2a3a4a; margin: 30px 0;">
+
+<div class="comments-section">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; flex-wrap:wrap; gap:10px;">
+        <h3>Comentários ({{ comments|length }})</h3>
+        <a href="{% url 'comment_create' post.pk %}" class="btn-create" style="padding:6px 14px; font-size:0.85rem;">+ Adicionar Comentário</a>
+    </div>
+
+    {% for comment in comments %}
+    <div class="comment">
+        <div class="comment-meta">
+            <strong>{{ comment.author.username }}</strong> em {{ comment.created_at|date:"d/m/Y \à\s H:i" }}
+        </div>
+        <div class="comment-text">
+            {{ comment.text|linebreaks }}
+        </div>
+    </div>
+    {% empty %}
+    <p style="color: #7a8a99;">Nenhum comentário ainda. Seja o primeiro a comentar!</p>
+    {% endfor %}
+</div>
 {% endblock %}
