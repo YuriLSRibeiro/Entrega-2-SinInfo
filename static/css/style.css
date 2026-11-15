@@ -1,0 +1,376 @@
+/* ===== Blog Django - Tema Inspirado na Primeira Entrega ===== */
+/* Paleta: fundo escuro, verde neon (#97ce4c), azul (#6dc4c5) */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', 'Courier New', Courier, monospace;
+    background-color: #121820;
+    color: #e0f2f1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===== HEADER / NAV ===== */
+header {
+    background-color: #0b1014;
+    padding: 15px 30px;
+    border-bottom: 2px solid #97ce4c;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+header h1 {
+    margin: 0;
+}
+
+header h1 a {
+    color: #97ce4c;
+    text-decoration: none;
+    text-shadow:
+        0 0 5px #97ce4c,
+        0 0 10px #97ce4c,
+        0 0 20px #97ce4c;
+    font-size: 1.5rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+nav a {
+    color: #e0f2f1;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+    font-size: 0.95rem;
+}
+
+nav a:hover {
+    color: #97ce4c;
+}
+
+/* ===== MAIN CONTENT ===== */
+main {
+    flex: 1;
+    padding: 30px;
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+h2 {
+    color: #a6dce8;
+    margin-bottom: 20px;
+    font-size: 1.6rem;
+}
+
+h3 {
+    color: #a6dce8;
+    margin-bottom: 10px;
+}
+
+/* ===== CARDS / POSTS ===== */
+.post-card {
+    background: #1c2633;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #6dc4c5;
+    box-shadow: 3px 3px 0px #6dc4c5;
+    margin-bottom: 20px;
+    transition: transform 0.2s;
+}
+
+.post-card:hover {
+    transform: translateY(-2px);
+}
+
+.post-card h3 a {
+    color: #97ce4c;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+.post-card h3 a:hover {
+    color: #a6dce8;
+}
+
+.post-date {
+    color: #7a8a99;
+    font-size: 0.85rem;
+    margin-top: 5px;
+}
+
+/* ===== POST DETAIL ===== */
+.post-content {
+    background: #1c2633;
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid #6dc4c5;
+    margin-bottom: 20px;
+    line-height: 1.7;
+}
+
+.post-content h1, .post-content h2, .post-content h3 {
+    color: #a6dce8;
+}
+
+.post-content a {
+    color: #97ce4c;
+}
+
+.post-actions {
+    display: flex;
+    gap: 15px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.post-actions a, .post-actions button {
+    display: inline-block;
+    padding: 8px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    cursor: pointer;
+    border: none;
+    transition: background 0.3s;
+}
+
+.btn-edit {
+    background: #6dc4c5;
+    color: #0b1014;
+}
+
+.btn-edit:hover {
+    background: #a6dce8;
+}
+
+.btn-delete {
+    background: #e74c3c;
+    color: #fff;
+}
+
+.btn-delete:hover {
+    background: #c0392b;
+}
+
+.btn-create {
+    background: #97ce4c;
+    color: #0b1014;
+}
+
+.btn-create:hover {
+    background: #b5e06e;
+}
+
+.btn-cancel {
+    background: #555;
+    color: #e0f2f1;
+}
+
+.btn-cancel:hover {
+    background: #777;
+}
+
+.btn-login {
+    background: #6dc4c5;
+    color: #0b1014;
+}
+
+.btn-login:hover {
+    background: #a6dce8;
+}
+
+/* ===== FORMS ===== */
+form {
+    max-width: 100%;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #a6dce8;
+    font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group textarea,
+.form-group input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    background: #1c2633;
+    border: 1px solid #6dc4c5;
+    border-radius: 5px;
+    color: #e0f2f1;
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+.form-group textarea {
+    min-height: 200px;
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #97ce4c;
+    box-shadow: 0 0 5px rgba(151, 206, 76, 0.3);
+}
+
+/* Django form errors */
+.errorlist {
+    list-style: none;
+    padding: 0;
+    color: #e74c3c;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+/* ===== COMMENTS ===== */
+.comments-section {
+    margin-top: 30px;
+}
+
+.comment {
+    background: #1a2230;
+    padding: 15px;
+    border-radius: 6px;
+    border-left: 3px solid #6dc4c5;
+    margin-bottom: 15px;
+}
+
+.comment-meta {
+    color: #7a8a99;
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+}
+
+.comment-meta strong {
+    color: #97ce4c;
+}
+
+.comment-text {
+    line-height: 1.5;
+}
+
+/* ===== CATEGORIES ===== */
+.categories-list {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin: 10px 0;
+}
+
+.category-tag {
+    display: inline-block;
+    padding: 4px 12px;
+    background: #2a3a4a;
+    border: 1px solid #6dc4c5;
+    border-radius: 15px;
+    color: #6dc4c5;
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: background 0.3s;
+}
+
+.category-tag:hover {
+    background: #6dc4c5;
+    color: #0b1014;
+}
+
+.category-card {
+    background: #1c2633;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #6dc4c5;
+    box-shadow: 3px 3px 0px #6dc4c5;
+    margin-bottom: 15px;
+}
+
+.category-card h3 a {
+    color: #97ce4c;
+    text-decoration: none;
+}
+
+.category-card h3 a:hover {
+    color: #a6dce8;
+}
+
+.category-card p {
+    color: #b0c0d0;
+    margin-top: 5px;
+}
+
+/* ===== DELETE CONFIRM ===== */
+.delete-confirm {
+    background: #1c2633;
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid #e74c3c;
+    text-align: center;
+}
+
+.delete-confirm p {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
+/* ===== MESSAGES ===== */
+.messages {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.messages li {
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background: #2a3a4a;
+    border-left: 4px solid #97ce4c;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background-color: #0b1014;
+    color: #7a8a99;
+    text-align: center;
+    padding: 15px;
+    border-top: 2px solid #97ce4c;
+    font-size: 0.85rem;
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul {
+        justify-content: center;
+    }
+
+    main {
+        padding: 15px;
+    }
+}

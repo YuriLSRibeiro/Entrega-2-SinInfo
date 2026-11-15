@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Blog{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <h1><a href="{% url 'post_list' %}">📝 Blog</a></h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'post_list' %}">Posts</a></li>
+                <li><a href="{% url 'post_create' %}">Novo Post</a></li>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'admin:index' %}">Admin</a></li>
+                    <li><a href="{% url 'logout' %}">Sair ({{ user.username }})</a></li>
+                {% else %}
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li class="{{ message.tags }}">{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2026 — Blog Django — PMR3304 Sistemas de Informação</p>
+    </footer>
+</body>
+</html>
