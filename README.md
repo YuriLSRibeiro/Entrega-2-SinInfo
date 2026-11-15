@@ -42,4 +42,4 @@ Acesse: http://127.0.0.1:8000/
 
 ## Autor
 
-Aluno — PMR3304 — Escola Politécnica da USP — 2026
+Yuri Leonardo Soares Ribeiro NUSP 14612923 — PMR3304 — Escola Politécnica da USP — 2026
