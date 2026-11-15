@@ -348,7 +348,7 @@ ORDER BY total_posts DESC, cat.name ASC;""")
         "acompanhada de manifesto de infraestrutura como código (render.yaml) e script de inicialização (build.sh)."
     )
     doc.add_paragraph(
-        "• Repositório no GitHub: https://github.com/usuario-aluno/blog-pmr3304-django (Repositório local Git inicializado, limpo e preparado para espelhamento remoto).\n"
+        "• Repositório no GitHub: https://github.com/YuriLSRibeiro/Entrega-2-SinInfo (Repositório no GitHub sincronizado e versionado com branches e histórico de commits).\n"
         "• Aplicação Publicada no Render: https://blog-pmr3304-django.onrender.com (Ambiente com suporte a WhiteNoise para ativos estáticos, Gunicorn WSGI e banco relacional configurável via variável DATABASE_URL)."
     )
 
@@ -722,7 +722,7 @@ ORDER BY total_posts DESC, cat.name ASC;""", "docs/evidencias/sql/consulta_5.png
     story.append(Paragraph("4.5. Implantação e Versionamento", h2_style))
     story.append(Paragraph(
         "• <b>Repositório Git:</b> Repositório inicializado localmente com histórico de commits semânticos, branches 'comments' e 'categories' integrados via merge e arquivo .gitignore configurado para não versionar arquivos sensíveis ou transitórios (db.sqlite3 e __pycache__).<br/>"
-        "• <b>URL do Repositório GitHub:</b> <u>https://github.com/usuario-aluno/blog-pmr3304-django</u><br/>"
+        "• <b>URL do Repositório GitHub:</b> <u>https://github.com/YuriLSRibeiro/Entrega-2-SinInfo</u><br/>"
         "• <b>URL da Aplicação no Render:</b> <u>https://blog-pmr3304-django.onrender.com</u><br/>"
         "• <b>Estratégia de Produção:</b> Configurações no settings.py com leitura de variáveis de ambiente (DJANGO_SECRET_KEY, DJANGO_ALLOWED_HOSTS, CSRF_TRUSTED_ORIGINS), serviço de arquivos estáticos pelo WhiteNoise, servidor WSGI Gunicorn, script de build (build.sh) e manifesto declarativo render.yaml.",
         body_style

@@ -40,6 +40,11 @@ Acesse: http://127.0.0.1:8000/
 └── requirements.txt
 ```
 
+## Repositório
+
+GitHub: https://github.com/YuriLSRibeiro/Entrega-2-SinInfo
+
 ## Autor
 
-Yuri Leonardo Soares Ribeiro NUSP 14612923 — PMR3304 — Escola Politécnica da USP — 2026
+Yuri Leonardo Soares Ribeiro — NUSP 14612923  
+PMR3304 — Sistemas de Informação — Escola Politécnica da USP — 2026
