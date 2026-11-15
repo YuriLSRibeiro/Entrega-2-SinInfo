@@ -30,3 +30,7 @@ Thumbs.db
 
 # Backup Hugo (primeira entrega)
 _backup_hugo/
+
+# Moodle Delivery Package (keeps local db.sqlite3 uncommitted)
+ENTREGA_MOODLE/
+*.zip
