@@ -13,6 +13,7 @@
         <nav>
             <ul>
                 <li><a href="{% url 'post_list' %}">Posts</a></li>
+                <li><a href="{% url 'category_list' %}">Categorias</a></li>
                 <li><a href="{% url 'post_create' %}">Novo Post</a></li>
                 {% if user.is_authenticated %}
                     <li><a href="{% url 'admin:index' %}">Admin</a></li>
