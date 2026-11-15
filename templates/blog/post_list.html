@@ -1,18 +1,36 @@
 {% extends "base.html" %}
 
-{% block title %}Posts — Blog{% endblock %}
+{% block title %}
+    {% if current_category %}
+        Categoria: {{ current_category.name }} — Blog
+    {% else %}
+        Posts — Blog
+    {% endif %}
+{% endblock %}
 
 {% block content %}
-<h2>Posts</h2>
+    {% if current_category %}
+        <h2>Categoria: {{ current_category.name }}</h2>
+        <p style="color: #b0c0d0; margin-bottom: 20px;">{{ current_category.description }}</p>
+        <p><a href="{% url 'category_list' %}" class="btn-cancel" style="display:inline-block;padding:5px 15px;margin-bottom:20px;text-decoration:none;font-size:0.85rem;">← Todas as Categorias</a></p>
+    {% else %}
+        <h2>Posts</h2>
+        <a href="{% url 'post_create' %}" class="btn-create" style="display:inline-block;padding:8px 20px;border-radius:5px;text-decoration:none;font-weight:bold;margin-bottom:20px;">+ Novo Post</a>
+    {% endif %}
 
-<a href="{% url 'post_create' %}" class="btn-create" style="display:inline-block;padding:8px 20px;border-radius:5px;text-decoration:none;font-weight:bold;margin-bottom:20px;">+ Novo Post</a>
-
-{% for post in posts %}
-<div class="post-card">
-    <h3><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h3>
-    <p class="post-date">Publicado em {{ post.created_at|date:"d/m/Y \à\s H:i" }}</p>
-</div>
-{% empty %}
-<p>Nenhum post publicado ainda.</p>
-{% endfor %}
+    {% for post in posts %}
+    <div class="post-card">
+        <h3><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h3>
+        <p class="post-date">Publicado em {{ post.created_at|date:"d/m/Y \à\s H:i" }}</p>
+        {% if post.categories.all %}
+        <div class="categories-list">
+            {% for cat in post.categories.all %}
+            <a href="{% url 'category_detail' cat.pk %}" class="category-tag">{{ cat.name }}</a>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+    {% empty %}
+    <p>Nenhum post encontrado {% if current_category %}nesta categoria{% endif %}.</p>
+    {% endfor %}
 {% endblock %}

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Categorias — Blog{% endblock %}
+
+{% block content %}
+<h2>Categorias</h2>
+
+<div class="category-grid">
+    {% for category in categories %}
+    <div class="category-card">
+        <h3><a href="{% url 'category_detail' category.pk %}">{{ category.name }}</a></h3>
+        <p>{{ category.description }}</p>
+        <p style="margin-top: 10px; font-size: 0.85rem; color: #7a8a99;">
+            {{ category.posts.count }} post{{ category.posts.count|pluralize:"s" }}
+        </p>
+    </div>
+    {% empty %}
+    <p>Nenhuma categoria cadastrada ainda.</p>
+    {% endfor %}
+</div>
+{% endblock %}

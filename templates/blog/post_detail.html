@@ -6,6 +6,15 @@
 <h2>{{ post.title }}</h2>
 <p class="post-date">Publicado em {{ post.created_at|date:"d/m/Y \à\s H:i" }}</p>
 
+{% if post.categories.all %}
+<div class="categories-list" style="margin: 15px 0;">
+    <span style="color: #7a8a99; font-size: 0.9rem; margin-right: 5px;">Categorias:</span>
+    {% for category in post.categories.all %}
+    <a href="{% url 'category_detail' category.pk %}" class="category-tag">{{ category.name }}</a>
+    {% endfor %}
+</div>
+{% endif %}
+
 <div class="post-content">
     {{ post.content|safe }}
 </div>

@@ -2,10 +2,24 @@ from django.db import models
 from django.conf import settings
 
 
+class Category(models.Model):
+    name = models.CharField(max_length=100, verbose_name='Nome')
+    description = models.TextField(verbose_name='Descrição')
+
+    class Meta:
+        ordering = ['name']
+        verbose_name = 'Categoria'
+        verbose_name_plural = 'Categorias'
+
+    def __str__(self):
+        return self.name
+
+
 class Post(models.Model):
     title = models.CharField(max_length=200, verbose_name='Título')
     content = models.TextField(verbose_name='Conteúdo')
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Data de publicação')
+    categories = models.ManyToManyField(Category, related_name='posts', blank=True, verbose_name='Categorias')
 
     class Meta:
         ordering = ['-created_at', '-id']
