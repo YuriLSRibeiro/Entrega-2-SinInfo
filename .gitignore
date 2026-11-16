@@ -33,4 +33,5 @@ _backup_hugo/
 
 # Moodle Delivery Package (keeps local db.sqlite3 uncommitted)
 ENTREGA_MOODLE/
+Entrega 2 Laboratório/
 *.zip
